@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="frmCheck">
+    Good: <input type="checkbox" name="good" onclick="return check()">
+    <br>
+    <br>
+    Fast: <input type="checkbox" name="fast" onclick="return check()">
+    <br>
+    <br>
+    Cheap: <input type="checkbox" name="cheap" onclick="return check()">
+</form>
+
+<script>
+    function check() {
+        let newCount = 0;
+        if(document.frmCheck.good.checked){
+            newCount = newCount + 1;
+        }
+        if(document.frmCheck.fast.checked){
+            newCount = newCount + 1;
+        }
+        if(document.frmCheck.cheap.checked){
+            newCount = newCount + 1;
+        }
+        if(newCount === 3){
+            alert("pick tow check box");
+            document.frmCheck;
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

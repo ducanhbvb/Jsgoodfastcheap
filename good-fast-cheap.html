@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox</title>
+</head>
+<body>
+
+<form method="post" name="form_name" id="form_name">
+    <input type="checkbox" name="check[]" value="CheckBox 1"onclick="checkBoxLimit()"/><br/>
+    <input type="checkbox" name="check[]" value="CheckBox 2"onclick="checkBoxLimit()"/><br/>
+    <input type="checkbox" name="check[]" value="CheckBox 3"onclick="checkBoxLimit()"/><br/>
+</form>
+
+<script>
+    function checkBoxLimit() {
+        var checkBoxGroup = document.forms['form_name']['check[]'];
+        var limit = 2;
+        for (var i = 0; i < checkBoxGroup.length; i++) {
+            checkBoxGroup[i].onclick = function() {
+                var checkedcount = 0;
+                for (var i = 0; i < checkBoxGroup.length; i++) {
+                    checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+
+                }
+                if (checkedcount > limit) {
+                    console.log("You can select maximum of " + limit + " checkboxes.");
+                    alert("You can select maximum of " + limit + " checkboxes.");
+                    this.checked = false;
+                    (checkBoxGroup[i-1].checked)=false;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
